@@ -25,3 +25,17 @@
     display: inline-block;
     
 }
+
+#demo {
+    display: inline-block;
+    width:80%;
+    /* height: 600px; */
+    margin:0px 20px;
+}
+
+.side-bar {
+    display: inline-block;
+    vertical-align: top;
+    margin-left:10px;
+
+}

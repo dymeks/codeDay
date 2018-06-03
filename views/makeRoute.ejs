@@ -17,8 +17,8 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <!-- <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li> -->
+                <li><a href="/my_routes">See all routes</a></li>
+                <li><a href="/logout">Logout</a></li>
                 
             </ul>
         </div>
@@ -28,23 +28,23 @@
     </div>
     <div class="address">
         <form action="/routes" method="post">
-            <div>
+            <div class="form-group">
                 <label for="start">Start Address:</label>
                 <input id="start" name="start" type="text">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="end">End Address:</label>
                 <input id="end" name="end" type="text">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="time">Departure Date/Time:</label>
                 <input id="time" name="time" type="datetime-local">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="seats">How many seats do you have?</label>
                 <input id="seats" name="seats" type="number">
             </div>
-            <button type="submit">Make a new trip!</button>
+            <button  class="btn btn-dark" type="submit">Make a new trip!</button>
         </form>
     </div>
 </body>

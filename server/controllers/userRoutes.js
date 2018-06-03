@@ -33,12 +33,53 @@ module.exports = {
                     } else {
                         console.log(route.name);
                         // req.session.user_id = user._id;
-                        res.render('success');
+                        res.redirect('/dashboard');
                     }
                 })
             }
         })
         
+    },
+    allRoutes:function(req,res){
+        userRoute.find({},function(err,routes){
+            if(routes){
+                res.render('display',{'routes':routes,'session':req.session});
+            }
+        })
+    },
+
+    join:function(req,res){
+        User.findById(req.session.user_id,function(err,user){
+            userRoute.findByIdAndUpdate(req.params.routeId,{$push:{passengers:user}},function(err,route){
+                console.log("I'm updating passengers!")
+                if(err){
+                    errors = err;
+                    res.render('index',{errors});
+                } else {
+                    route.totalSeatsAvailible = route.totalSeatsAvailible--;
+                    console.log(route);
+                    userRoute.findByIdAndUpdate(req.params.routeId,route,function(err,route){
+                        if(err){
+                            errors = err;
+                            res.render('index',{errors});
+                        } else {
+                            res.redirect('/dashboard');
+                        }
+                    })
+                    
+                }
+            })
+        })
+        
+    },
+    delete:function(req,res){
+        userRoute.findByIdAndRemove(req.params.id,function(err, res){
+            if(err){
+                res.render('index',{errors:["Error: Removing"]});
+            } else {
+                res.redirect('/dashboard');
+            }
+        })
     },
 
     renderNewRoute:function(req,res){

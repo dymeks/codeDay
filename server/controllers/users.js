@@ -10,9 +10,9 @@ module.exports = {
     renderLogReg: function(req,res){
         res.render('index',{errors:[]});
     },
-    loadLogin:function(req,res){
-        res.render('registration');
-    },
+    // loadLogin:function(req,res){
+    //     res.render('index');
+    // },
     register: function(req,res){
         User.findOne({name: req.body.name},function(err,user){
             if(user == null){
@@ -82,7 +82,7 @@ module.exports = {
     },
     logout:function(req,res){
         req.session.destroy();
-        res.render('index',{errors:[]});
+        res.redirect('/');
     }
     
 }

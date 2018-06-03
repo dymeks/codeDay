@@ -4,6 +4,9 @@ const saltRounds = 10;
 const session = require('express-session');
 
 module.exports = {
+    dashboard: function(req,res){
+        res.render('dashboard');
+    },
     renderLogReg: function(req,res){
         res.render('index',{errors:[]});
     },
@@ -39,7 +42,7 @@ module.exports = {
                             } else {
                                 console.log(user.name);
                                 req.session.user_id = user._id;
-                                res.render('success');
+                                res.redirect('/dashboard');
                             }
                         })
                         console.log("After save!");
@@ -71,7 +74,7 @@ module.exports = {
                     res.render('index',{error:'Password does not match'});
                 } else {
                     req.session.user_id = user._id;
-                    res.render('success');
+                    res.redirect('/dashboard');
                 }
             });
             

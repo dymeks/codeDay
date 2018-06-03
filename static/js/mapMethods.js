@@ -35,7 +35,16 @@ function showPosition(position) {
     // Add event listeners:
     map.addEventListener('drag', function(evt) {
     // Log events
-    console.log(evt.type, evt.currentPointer.type); 
+    console.log(evt.type, evt.currentPointer.type);
+    });
+
+    // Add event listeners:
+    map.addEventListener('tap', function(evt) {
+        console.log(EventTarget);
+        var coord = map.screenToGeo(evt.currentPointer.viewportX,
+            evt.currentPointer.viewportY);
+        marker = new H.map.DomMarker(coord);
+        map.addObject(marker);
     });
 
     // Instantiate the default behavior, providing the mapEvents object: 

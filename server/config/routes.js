@@ -13,6 +13,10 @@ module.exports = function(app){
         users.login(req,res);
     })
 
+    app.get('/dashboard', function(req, res){
+        users.dashboard(req,res);
+    })
+
     app.get('/logout',function(req,res){
         users.logout(req,res);
     })

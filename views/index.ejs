@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login Home</title>
+	<link rel="stylesheet" href="~/css/style.css" media="screen" title="no title"  charset="utf-8">
+
+</head>
+<body>
+	<div class="container">
+        <div class="errors">
+        <% if(errors) { %>
+            <% for(let message of errors) { %>
+                    <p><%= message %></p>
+            <% } %>
+        <% } %>
+        </div>
+        <form action="/registration" method="post">
+        
+            <label for="name">Name: </label>
+            <input name='name' for="name"/> <br>
+          
+            <label for="Email">Email</label>
+            <input name="email" for="Email"/><br>
+
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" for="phone"/><br>
+
+            <label for="Password">Password:</label>
+            <input type="password" name="password" for="Password"/><br>
+            
+            <label for="PasswordConfirm">Password Confirm</label>
+            <input type="password" name="password_confirm" for="PasswordConfirm"/>
+            
+            <button type="submit">Create new User</button>
+        </form>
+		<form class="login" action="/login" method="POST"> 
+			<div>
+                
+            </div>
+            <label for="Email">Email</label>
+            <input type="email" id ="Email" name= "email" />
+			
+            <label for="Password">Password</label>
+            <input type="password" name="password" id="Password"/>
+			<input class = 'login_submit' type="submit" name="submit" value="Login">
+		</form>
+	</div>
+</body>
+</html>

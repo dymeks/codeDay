@@ -1,4 +1,6 @@
 const users = require("../controllers/users.js");
+const routes = require('../controllers/userRoutes.js');
+
 module.exports = function(app){
 
     app.get('/',function(req,res){
@@ -9,6 +11,10 @@ module.exports = function(app){
         users.register(req,res);
     })
 
+    app.get('/login',function(req,res){
+        users.loadLogin(req,res);
+    })
+
     app.post('/login',function(req,res){
         users.login(req,res);
     })
@@ -17,39 +23,12 @@ module.exports = function(app){
         users.logout(req,res);
     })
 
-    // app.post('/registration',function(req,res){
-    //     if(req.body.password === req.body.password_confirm){
-    //         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-    //             // Store hash in your password DB.
-    //             var user = new User({
-    //                 first_name: req.body.first_name,
-    //                 last_name: req.body.last_name,
-    //                 email: req.body.email,
-    //                 password: hash,
-    //                 birthday: req.body.birthday
-    //             });
-    
-    //             console.log(user);
-    //             user.save(function(err){
-    //                 if(err)
-    //                 {   
-    //                     errors = [];
-    //                     for(var key in err.errors)
-    //                     {
-    //                         console.log(err);
-    //                         errors.push(err.errors[key].message);
-    //                     }
-    //                     res.render('index',{errors});
-    //                 } else {
-    //                     console.log(user._id);
-    //                     req.session.user_id = user._id;
-    //                     res.render('success');
-    //                 }
-    //             })
-    //         });
-    //     } else {
-    //         console.log("Password and Password confirm must match!");
-    //         res.render('index');
-    //     }
-    // })
+    app.get('/routes',function(req,res){
+        routes.renderNewRoute(req,res);
+    })
+
+    app.post('/routes',function(req,res){
+        routes.newRoute(req,res);
+    });
+
 }

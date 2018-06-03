@@ -2,12 +2,28 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Login Home</title>
-	<link rel="stylesheet" href="~/css/style.css" media="screen" title="no title"  charset="utf-8">
+    <title>Login Home</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/style.css" media="screen" title="no title"  charset="utf-8">
 
 </head>
 <body>
 	<div class="container">
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="logo" src="/img/house.jpg" alt="home">
+                    <a class="navbar-brand" href="#">Home Away From Home</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <!-- <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li> -->
+                    
+                </ul>
+            </div>
+        </div>
         <div class="errors">
         <% if(errors) { %>
             <% for(let message of errors) { %>
@@ -15,36 +31,55 @@
             <% } %>
         <% } %>
         </div>
-        <form action="/registration" method="post">
+        <div class="main">
+                <div class="logreg">
+                    <form action="/registration" method="post" >
+                        <div class="form-group">
+                            <label for="name">Name: </label>
+                            <input name='name' for="name"/> <br>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input name="email" for="Email"/><br>
+                        </div>    
+            
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" name="phone" for="phone"/><br>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="Password">Password:</label>
+                            <input type="password" name="password" for="Password"/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="PasswordConfirm">Password Confirm</label>
+                            <input type="password" name="password_confirm" for="PasswordConfirm"/>
+                        </div>    
+                        
+                        <button type="submit">Create new User</button>
+                    </form>
+                </div>
+                <div class="logreg">
+                    <form class="login" action="/login" method="POST"> 
+                        <div>
+                            
+                        </div>
+                        <label for="Email">Email</label>
+                        <input type="email" id ="Email" name= "email" />
+                        
+                        <label for="Password">Password</label>
+                        <input type="password" name="password" id="Password"/>
+                        <input class = 'login_submit' type="submit" name="submit" value="Login">
+                    </form>
+                </div>
+                <!-- <div class="background_image">
+
+                </div> -->
+        </div>
         
-            <label for="name">Name: </label>
-            <input name='name' for="name"/> <br>
-          
-            <label for="Email">Email</label>
-            <input name="email" for="Email"/><br>
-
-            <label for="phone">Phone</label>
-            <input type="tel" name="phone" for="phone"/><br>
-
-            <label for="Password">Password:</label>
-            <input type="password" name="password" for="Password"/><br>
-            
-            <label for="PasswordConfirm">Password Confirm</label>
-            <input type="password" name="password_confirm" for="PasswordConfirm"/>
-            
-            <button type="submit">Create new User</button>
-        </form>
-		<form class="login" action="/login" method="POST"> 
-			<div>
-                
-            </div>
-            <label for="Email">Email</label>
-            <input type="email" id ="Email" name= "email" />
-			
-            <label for="Password">Password</label>
-            <input type="password" name="password" id="Password"/>
-			<input class = 'login_submit' type="submit" name="submit" value="Login">
-		</form>
+		
 	</div>
 </body>
 </html>

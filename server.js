@@ -6,7 +6,7 @@ const session = require('express-session');
 const app = express();
 
 app.use(bp.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, './static')));
+app.use(express.static(path.join(__dirname, 'static')));
 // Setting our Views Folder Directory
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');

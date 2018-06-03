@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title"  charset="utf-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img class="logo" src="/img/house.jpg" alt="home">
+                <a class="navbar-brand" href="#">Home Away From Home</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <!-- <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li> -->
+                
+            </ul>
+        </div>
+    </div>
+    <div class="map">
+
+    </div>
+    <div class="address">
+        <form action="/routes" method="post">
+            <div>
+                <label for="start">Start Address:</label>
+                <input id="start" name="start" type="text">
+            </div>
+            <div>
+                <label for="end">End Address:</label>
+                <input id="end" name="end" type="text">
+            </div>
+            <div>
+                <label for="time">Departure Date/Time:</label>
+                <input id="time" name="time" type="datetime-local">
+            </div>
+            <div>
+                <label for="seats">How many seats do you have?</label>
+                <input id="seats" name="seats" type="number">
+            </div>
+            <button type="submit">Make a new trip!</button>
+        </form>
+    </div>
+</body>
+</html>

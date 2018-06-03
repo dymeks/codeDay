@@ -1,0 +1,27 @@
+.logo {
+    height:50px;
+}
+
+.logreg {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+
+.background_image {
+    position: relative;
+    display: inline-block;
+    top:0px;
+    left:0px;
+    min-width: 100px;
+    min-height: 200px;
+    background-image: url('/img/welcome.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+
+.map {
+    display: inline-block;
+    
+}

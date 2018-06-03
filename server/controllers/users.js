@@ -7,6 +7,9 @@ module.exports = {
     renderLogReg: function(req,res){
         res.render('index',{errors:[]});
     },
+    loadLogin:function(req,res){
+        res.render('registration');
+    },
     register: function(req,res){
         User.findOne({name: req.body.name},function(err,user){
             if(user == null){

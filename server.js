@@ -6,7 +6,8 @@ const session = require('express-session');
 
 
 const app = express();
-app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, 'client')));
+app.set('view engine', 'ejs');
 
 app.use(bp.json());
 // app.use(express.static(path.join(__dirname,'./client/dist/client')));

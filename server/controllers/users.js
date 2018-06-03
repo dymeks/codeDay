@@ -36,7 +36,7 @@ module.exports = {
                             } else {
                                 console.log(user.name);
                                 req.session.user_id = user._id;
-                                res.render('success');
+                                res.render('dashboard');
                             }
                         })
                         console.log("After save!");
@@ -68,7 +68,7 @@ module.exports = {
                     res.render('index',{error:'Password does not match'});
                 } else {
                     req.session.user_id = user._id;
-                    res.render('success');
+                    res.render('dashboard');
                 }
             });
             

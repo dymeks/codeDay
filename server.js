@@ -8,12 +8,13 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.set('view engine', 'ejs');
 
 app.use(bp.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, './static')));
+app.use(express.static(path.join(__dirname, 'static')));
 // Setting our Views Folder Directory
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(session({secret: "Shh, It's a secret!"}));
 require('./server/config/routes.js')(app);
+
 
 app.get('/dashboard', function (req, res) {
     res.render('map');
